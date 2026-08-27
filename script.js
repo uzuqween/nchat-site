@@ -2,7 +2,7 @@
 
 // Ссылка на файл релиза. Когда сборка появится в GitHub Releases — заменить
 // на прямой URL вида https://github.com/USER/REPO/releases/latest/download/NChat.exe
-const DOWNLOAD_URL = ''
+const DOWNLOAD_URL = 'https://github.com/uzuqween/nchat-site/releases/latest/download/NChat.exe'
 
 /**
  * Звук клика по всей странице. Новый Audio на каждый клик — быстрые повторные
