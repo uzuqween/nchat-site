@@ -1,0 +1,463 @@
+/* ─────────── Токены (совпадают с приложением NChat) ─────────── */
+
+:root {
+  --font: 'Quicksand', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  --radius-sm: 8px;
+  --radius: 12px;
+  --radius-lg: 16px;
+
+  --transition: 140ms cubic-bezier(0.22, 1, 0.36, 1);
+  --transition-slow: 300ms cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-spring: cubic-bezier(0.34, 1.4, 0.64, 1);
+
+  --accent: #ffffff;
+  --accent-rgb: 255, 255, 255;
+
+  /* Серо-графитовая тёмная тема */
+  --bg-primary: #141518;
+  --bg-secondary: #1b1c20;
+  --bg-tertiary: #24252a;
+  --bg-hover: #2c2d33;
+  --border: #2b2c32;
+  --text-primary: #ececee;
+  --text-secondary: #a4a6ac;
+  --text-muted: #6c6e75;
+  --shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 18px 50px rgba(0, 0, 0, 0.55);
+
+  --maxw: 1080px;
+}
+
+/* ─────────── Сброс ─────────── */
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.6;
+  color: var(--text-primary);
+  background: var(--bg-primary);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+a { color: inherit; text-decoration: none; }
+
+.container {
+  width: 100%;
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ─────────── Логотип-куб NC ─────────── */
+
+.brand-logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: var(--radius-sm);
+  background: #0e0e0e;
+  color: #fff;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: -0.5px;
+  flex: 0 0 auto;
+}
+
+.brand-logo-sm { width: 26px; height: 26px; font-size: 11px; }
+
+/* ─────────── Шапка ─────────── */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: rgba(20, 21, 24, 0.8);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.nav a {
+  color: var(--text-secondary);
+  transition: color var(--transition);
+}
+
+.nav a:hover { color: var(--text-primary); }
+
+.nav-github {
+  padding: 6px 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  transition: border-color var(--transition), color var(--transition), background var(--transition);
+}
+
+.nav-github:hover { border-color: var(--text-muted); background: var(--bg-hover); }
+
+/* ─────────── Первый экран ─────────── */
+
+.hero {
+  position: relative;
+  padding: 100px 0 80px;
+  overflow: hidden;
+}
+
+/* Bloom: мягкое свечение за логотипом-кубом. Радиальный градиент без резких
+   границ читается как рассеянный свет. */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 60px;
+  left: 50%;
+  width: 420px;
+  height: 420px;
+  transform: translateX(-50%);
+  background: radial-gradient(circle, rgba(var(--accent-rgb), 0.16) 0%, rgba(var(--accent-rgb), 0.06) 34%, transparent 66%);
+  pointer-events: none;
+  filter: blur(10px);
+  animation: bloomPulse 6s ease-in-out infinite;
+  z-index: 0;
+}
+
+@keyframes bloomPulse {
+  0%, 100% { opacity: 0.75; transform: translateX(-50%) scale(1); }
+  50% { opacity: 1; transform: translateX(-50%) scale(1.06); }
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.hero-logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 78px;
+  height: 78px;
+  border-radius: 20px;
+  background: #0e0e0e;
+  color: #fff;
+  font-weight: 700;
+  font-size: 32px;
+  letter-spacing: -1px;
+  margin-bottom: 30px;
+  box-shadow: var(--shadow-lg), 0 0 44px rgba(var(--accent-rgb), 0.22);
+  animation: riseIn 600ms var(--ease-out) both;
+}
+
+.hero-title {
+  font-size: clamp(48px, 9vw, 92px);
+  font-weight: 700;
+  letter-spacing: -1px;
+  animation: riseIn 600ms var(--ease-out) both;
+}
+
+.hero-lead {
+  max-width: 620px;
+  margin-top: 20px;
+  font-size: clamp(16px, 2.2vw, 19px);
+  color: var(--text-secondary);
+  animation: riseIn 600ms var(--ease-out) 80ms both;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 14px;
+  margin-top: 34px;
+  flex-wrap: wrap;
+  justify-content: center;
+  animation: riseIn 600ms var(--ease-out) 160ms both;
+}
+
+.hero-preview {
+  position: relative;
+  width: 100%;
+  margin-top: 60px;
+  animation: riseIn 700ms var(--ease-out) 240ms both;
+}
+
+/* Bloom за главным скриншотом: свечение шире самой картинки, поэтому
+   изображение как будто светится изнутри и отделяется от фона. */
+.hero-preview::before {
+  content: '';
+  position: absolute;
+  inset: -8% -4%;
+  background: radial-gradient(ellipse at center, rgba(var(--accent-rgb), 0.16) 0%, rgba(var(--accent-rgb), 0.05) 42%, transparent 72%);
+  filter: blur(28px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.hero-preview img {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+}
+
+/* ─────────── Кнопки ─────────── */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 11px 22px;
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform var(--transition), background var(--transition), border-color var(--transition), color var(--transition), box-shadow var(--transition);
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: #141518;
+}
+
+.btn-primary:hover { transform: translateY(-2px); box-shadow: var(--shadow), 0 0 30px rgba(var(--accent-rgb), 0.28); }
+.btn-primary:active { transform: translateY(0) scale(0.97); }
+
+.btn-ghost {
+  background: transparent;
+  border-color: var(--border);
+  color: var(--text-primary);
+}
+
+.btn-ghost:hover { border-color: var(--text-muted); background: var(--bg-hover); transform: translateY(-2px); }
+.btn-ghost:active { transform: translateY(0) scale(0.97); }
+
+.btn-lg { padding: 14px 30px; font-size: 16px; }
+
+/* ─────────── Секции ─────────── */
+
+.section { padding: 80px 0; }
+.section-alt { background: var(--bg-secondary); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+
+.section-title {
+  font-size: clamp(26px, 4vw, 34px);
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+/* ─────────── Возможности ─────────── */
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 18px;
+}
+
+.feature {
+  padding: 24px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg-secondary);
+  transition: border-color var(--transition-slow), transform var(--transition-slow), box-shadow var(--transition-slow);
+}
+
+.feature:hover {
+  border-color: rgba(var(--accent-rgb), 0.35);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow), 0 0 24px rgba(var(--accent-rgb), 0.07);
+}
+
+.feature h3 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.feature p {
+  font-size: 14.5px;
+  color: var(--text-secondary);
+}
+
+/* ─────────── Скриншоты ─────────── */
+
+.screens-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 28px;
+}
+
+.screen {
+  position: relative;
+  margin: 0;
+  overflow: hidden;
+  border-radius: var(--radius);
+}
+
+/* Bloom за каждым скриншотом секции — тот же приём, что в hero. */
+.screen::before {
+  content: '';
+  position: absolute;
+  inset: -6% -3% 10%;
+  background: radial-gradient(ellipse at center, rgba(var(--accent-rgb), 0.13) 0%, rgba(var(--accent-rgb), 0.045) 44%, transparent 72%);
+  filter: blur(24px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.screen-frame {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+}
+
+.screen img {
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: transform var(--transition-slow);
+}
+
+/* Приближение при наведении: рамка обрезает вылезающие края. */
+.screen-frame:hover img { transform: scale(1.12); }
+
+.screen figcaption {
+  position: relative;
+  z-index: 1;
+  margin-top: 14px;
+  text-align: center;
+  font-size: 13.5px;
+  color: var(--text-muted);
+}
+
+/* ─────────── Скачивание ─────────── */
+
+.download-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.download-text {
+  max-width: 520px;
+  color: var(--text-secondary);
+  margin-bottom: 30px;
+}
+
+/* Короткая фраза над текстом блока: крупная, приглушённая, задаёт настроение. */
+.download-tagline {
+  font-size: clamp(22px, 4vw, 32px);
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  margin-bottom: 14px;
+  color: var(--text-primary);
+}
+
+.download-note {
+  margin-top: 16px;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+/* ─────────── Подвал ─────────── */
+
+.site-footer {
+  border-top: 1px solid var(--border);
+  padding: 28px 0;
+}
+
+.footer-inner {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.footer-text { font-weight: 700; }
+
+.footer-author {
+  margin-left: auto;
+  font-size: 13px;
+  color: var(--text-muted);
+  font-family: var(--font-mono, monospace);
+}
+
+.footer-link {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  transition: color var(--transition);
+}
+
+.footer-link:hover { color: var(--text-primary); }
+
+/* ─────────── Анимации ─────────── */
+
+@keyframes riseIn {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: none; }
+}
+
+/* Появление секций при прокрутке (класс вешает script.js) */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 600ms var(--ease-out), transform 600ms var(--ease-out);
+}
+
+.reveal.visible { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+  .reveal { opacity: 1; transform: none; }
+}
+
+/* ─────────── Адаптив ─────────── */
+
+@media (max-width: 640px) {
+  .nav { gap: 14px; font-size: 13px; }
+  .nav a:not(.nav-github) { display: none; }
+  .hero { padding: 70px 0 60px; }
+  .section { padding: 60px 0; }
+}

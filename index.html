@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NChat — настольный ИИ-чат с доступом к вашему компьютеру</title>
+  <meta name="description" content="NChat — настольное приложение для работы с языковыми моделями. Файлы, оболочка, git, MCP-серверы и параллельные чаты в одном окне." />
+  <link rel="icon" href="assets/icon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#top">
+        <span class="brand-logo" aria-hidden="true">NC</span>
+        <span class="brand-name">NChat</span>
+      </a>
+      <nav class="nav">
+        <a href="#features">Возможности</a>
+        <a href="#screens">Интерфейс</a>
+        <a href="#download">Скачать</a>
+        <a class="nav-github" href="https://github.com/" target="_blank" rel="noopener">GitHub</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- Первый экран -->
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="hero-logo" aria-hidden="true">NC</div>
+        <h1 class="hero-title">NChat</h1>
+        <p class="hero-lead">
+          Настольный чат с языковыми моделями, который работает с вашим
+          компьютером напрямую: читает и пишет файлы, выполняет команды,
+          управляет git и подключает MCP-серверы.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#download">Скачать для Windows</a>
+          <a class="btn btn-ghost" href="#features">Что умеет</a>
+        </div>
+        <div class="hero-preview">
+          <img src="assets/main.png" alt="Главное окно NChat" loading="lazy" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Возможности -->
+    <section id="features" class="section">
+      <div class="container">
+        <h2 class="section-title">Возможности</h2>
+        <div class="feature-grid">
+          <article class="feature">
+            <h3>Работа с файлами</h3>
+            <p>Чтение, поиск по имени и содержимому, правка фрагментов, создание, копирование и перемещение — прямо из чата.</p>
+          </article>
+          <article class="feature">
+            <h3>Оболочка и система</h3>
+            <p>Выполнение команд, запуск программ, процессы, службы и переменные среды под контролем подтверждений.</p>
+          </article>
+          <article class="feature">
+            <h3>Git</h3>
+            <p>Статус, диффы, история, коммиты, ветки, push и pull без переключения на терминал.</p>
+          </article>
+          <article class="feature">
+            <h3>MCP-серверы</h3>
+            <p>Подключение внешних инструментов по протоколу MCP. Состав инструментов зависит от подключённых серверов.</p>
+          </article>
+          <article class="feature">
+            <h3>Несколько чатов сразу</h3>
+            <p>Параллельная работа в нескольких диалогах с индикатором состояния каждого запроса.</p>
+          </article>
+          <article class="feature">
+            <h3>Артефакты-превью</h3>
+            <p>HTML, SVG и Mermaid-диаграммы из ответа модели рисуются рядом с кодом.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Скриншоты -->
+    <section id="screens" class="section section-alt">
+      <div class="container">
+        <h2 class="section-title">Интерфейс</h2>
+        <div class="screens-grid">
+          <figure class="screen">
+            <div class="screen-frame">
+              <img src="assets/skills.png" alt="Скиллы в NChat" loading="lazy" />
+            </div>
+            <figcaption>Скиллы: инструкции проекта по «/»</figcaption>
+          </figure>
+          <figure class="screen">
+            <div class="screen-frame">
+              <img src="assets/settings.png" alt="Настройки NChat" loading="lazy" />
+            </div>
+            <figcaption>Настройки: провайдеры, инструменты, внешний вид</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- Скачивание -->
+    <section id="download" class="section">
+      <div class="container download-inner">
+        <h2 class="section-title">Скачать</h2>
+        <p class="download-tagline">Один клик до…</p>
+        <p class="download-text">
+          Портативная сборка для Windows. Файл сохранится в папку загрузок или
+          туда, куда вы укажете — установка не требуется.
+        </p>
+        <a class="btn btn-primary btn-lg" id="download-btn" href="#" download>
+          Скачать NChat.exe
+        </a>
+        <p class="download-note">Windows 10 и новее · x64</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <span class="brand-logo brand-logo-sm" aria-hidden="true">NC</span>
+      <span class="footer-text">NChat</span>
+      <span class="footer-author">author: mamin_tapochek</span>
+      <a class="footer-link" href="https://github.com/" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
