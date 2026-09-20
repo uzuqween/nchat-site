@@ -1,7 +1,8 @@
 /* ─────────── Токены (совпадают с приложением NChat) ─────────── */
 
 :root {
-  --font: 'Quicksand', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Cascadia Code', Consolas, monospace;
 
   --radius-sm: 8px;
   --radius: 12px;
@@ -117,6 +118,9 @@ a { color: inherit; text-decoration: none; }
 .nav a:hover { color: var(--text-primary); }
 
 .nav-github {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
   padding: 6px 14px;
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
@@ -124,6 +128,35 @@ a { color: inherit; text-decoration: none; }
 }
 
 .nav-github:hover { border-color: var(--text-muted); background: var(--bg-hover); }
+
+/* Кнопка-бургер: скрыта на десктопе, появляется на мобильных */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  padding: 8px;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+}
+
+.nav-toggle span {
+  display: block;
+  height: 2px;
+  width: 100%;
+  background: var(--text-primary);
+  border-radius: 2px;
+  transition: transform var(--transition), opacity var(--transition);
+}
+
+/* Превращение бургера в крестик при открытом меню */
+.nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+.nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
 /* ─────────── Первый экран ─────────── */
 
@@ -135,6 +168,8 @@ a { color: inherit; text-decoration: none; }
 
 /* Bloom: мягкое свечение за логотипом-кубом. Радиальный градиент без резких
    границ читается как рассеянный свет. */
+/* Bloom за логотипом. Позиция смещается за курсором через --bloom-x/--bloom-y
+   (обновляет script.js, свойство translate не конфликтует с transform-центровкой). */
 .hero::before {
   content: '';
   position: absolute;
@@ -148,6 +183,7 @@ a { color: inherit; text-decoration: none; }
   filter: blur(10px);
   animation: bloomPulse 6s ease-in-out infinite;
   z-index: 0;
+  translate: var(--bloom-x, 0px) var(--bloom-y, 0px);
 }
 
 @keyframes bloomPulse {
@@ -209,6 +245,7 @@ a { color: inherit; text-decoration: none; }
   position: relative;
   width: 100%;
   margin-top: 60px;
+  perspective: 1200px;
   animation: riseIn 700ms var(--ease-out) 240ms both;
 }
 
@@ -233,7 +270,52 @@ a { color: inherit; text-decoration: none; }
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-lg);
+  transform: rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg));
+  will-change: transform;
 }
+
+/* Плавный возврат наклона при уходе курсора (класс вешает script.js) */
+.hero-preview.tilt-settle img {
+  transition: transform 500ms var(--ease-out);
+}
+
+/* ─────────── Бегущая строка команд ─────────── */
+
+.hero-marquee {
+  margin-top: 56px;
+  width: 100%;
+}
+
+.marquee {
+  overflow: hidden;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 14px 0;
+  white-space: nowrap;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+}
+
+.marquee-track {
+  display: inline-flex;
+  animation: marqueeScroll 36s linear infinite;
+}
+
+/* Контент дублируется в HTML дважды — бесшовная петля на -50% */
+@keyframes marqueeScroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.marquee-item {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-right: 48px;
+  flex: 0 0 auto;
+}
+
+.marquee-item b { color: var(--text-secondary); font-weight: 500; }
 
 /* ─────────── Кнопки ─────────── */
 
@@ -304,6 +386,14 @@ a { color: inherit; text-decoration: none; }
   box-shadow: var(--shadow), 0 0 24px rgba(var(--accent-rgb), 0.07);
 }
 
+.feature-icon {
+  width: 26px;
+  height: 26px;
+  color: var(--text-primary);
+  opacity: 0.9;
+  margin-bottom: 14px;
+}
+
 .feature h3 {
   font-size: 18px;
   font-weight: 700;
@@ -338,6 +428,20 @@ a { color: inherit; text-decoration: none; }
   margin-bottom: 14px;
   color: var(--text-primary);
 }
+
+/* Строка статистики из GitHub Releases API: версия · размер · скачивания */
+.download-stats {
+  margin-top: 16px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--text-secondary);
+  padding: 6px 14px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--bg-secondary);
+}
+
+.download-stats .accent { color: var(--text-primary); font-weight: 700; }
 
 .download-note {
   margin-top: 16px;
@@ -396,13 +500,55 @@ a { color: inherit; text-decoration: none; }
   html { scroll-behavior: auto; }
   * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
   .reveal { opacity: 1; transform: none; }
+  .marquee-track { animation: none; }
 }
 
 /* ─────────── Адаптив ─────────── */
 
 @media (max-width: 640px) {
-  .nav { gap: 14px; font-size: 13px; }
-  .nav a:not(.nav-github) { display: none; }
   .hero { padding: 70px 0 60px; }
   .section { padding: 60px 0; }
+
+  /* Навигация превращается в выпадающее меню за бургером.
+     Раньше ссылки просто скрывались — с телефона нельзя было попасть
+     в «Возможности» и «Скачать». */
+  .nav-toggle { display: flex; }
+
+  .nav {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 4px;
+    padding: 12px 24px 16px;
+    background: var(--bg-primary);
+    border-bottom: 1px solid var(--border);
+    font-size: 15px;
+    opacity: 0;
+    transform: translateY(-8px);
+    pointer-events: none;
+    transition: opacity var(--transition-slow), transform var(--transition-slow);
+  }
+
+  .nav.open {
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
+  }
+
+  .nav a {
+    display: block;
+    padding: 10px 4px;
+  }
+
+  .nav .nav-github {
+    justify-content: center;
+    margin-top: 8px;
+    padding: 10px 14px;
+  }
+
+  .footer-inner { flex-wrap: wrap; }
+  .footer-author { margin-left: 0; width: 100%; order: 5; }
 }

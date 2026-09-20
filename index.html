@@ -8,7 +8,8 @@
   <link rel="icon" href="assets/icon.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" />
+  <!-- Manrope с кириллицей (Quicksand русский текст не поддерживает) + JetBrains Mono для акцентов -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -18,11 +19,20 @@
         <span class="brand-logo" aria-hidden="true">NC</span>
         <span class="brand-name">NChat</span>
       </a>
-      <nav class="nav">
+      <nav class="nav" id="nav">
         <a href="#features">Возможности</a>
         <a href="#download">Скачать</a>
-        <a class="nav-github" href="https://t.me/mamin_tapochek" target="_blank" rel="noopener">Telegram</a>
+        <a class="nav-telegram" href="https://t.me/mamin_tapochek" target="_blank" rel="noopener">Telegram</a>
+        <a class="nav-github" href="https://github.com/uzuqween/nchat-site/releases" target="_blank" rel="noopener">
+          <svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" fill="currentColor">
+            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/>
+          </svg>
+          <span>GitHub</span>
+        </a>
       </nav>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Открыть меню" aria-expanded="false" aria-controls="nav">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </header>
 
@@ -41,7 +51,33 @@
           <a class="btn btn-primary" href="#download">Скачать для Windows</a>
           <a class="btn btn-ghost" href="#features">Что умеет</a>
         </div>
-        <div class="hero-preview">
+
+        <!-- Бегущая строка: команды и запросы, которые NChat выполняет на практике.
+             Контент дублирован — петля marquee бесшовная. -->
+        <div class="hero-marquee" aria-hidden="true">
+          <div class="marquee">
+            <div class="marquee-track">
+              <span class="marquee-item"><b>$</b> git status</span>
+              <span class="marquee-item"><b>›</b> прочитай src/app.ts</span>
+              <span class="marquee-item"><b>$</b> git commit -m "fix"</span>
+              <span class="marquee-item"><b>›</b> подключи MCP-сервер</span>
+              <span class="marquee-item"><b>$</b> Get-Process node</span>
+              <span class="marquee-item"><b>›</b> собери HTML-превью</span>
+              <span class="marquee-item"><b>$</b> git push origin master</span>
+              <span class="marquee-item"><b>›</b> найди TODO в проекте</span>
+              <span class="marquee-item"><b>$</b> git status</span>
+              <span class="marquee-item"><b>›</b> прочитай src/app.ts</span>
+              <span class="marquee-item"><b>$</b> git commit -m "fix"</span>
+              <span class="marquee-item"><b>›</b> подключи MCP-сервер</span>
+              <span class="marquee-item"><b>$</b> Get-Process node</span>
+              <span class="marquee-item"><b>›</b> собери HTML-превью</span>
+              <span class="marquee-item"><b>$</b> git push origin master</span>
+              <span class="marquee-item"><b>›</b> найди TODO в проекте</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-preview" id="hero-preview">
           <img src="assets/main.jpg" alt="Главное окно NChat" loading="lazy" />
         </div>
       </div>
@@ -53,26 +89,44 @@
         <h2 class="section-title">Возможности</h2>
         <div class="feature-grid">
           <article class="feature">
+            <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/>
+            </svg>
             <h3>Работа с файлами</h3>
             <p>Чтение, поиск по имени и содержимому, правка фрагментов, создание, копирование и перемещение — прямо из чата.</p>
           </article>
           <article class="feature">
+            <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/>
+            </svg>
             <h3>Оболочка и система</h3>
             <p>Выполнение команд, запуск программ, процессы, службы и переменные среды под контролем подтверждений.</p>
           </article>
           <article class="feature">
+            <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="6" y1="3" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 9a9 9 0 0 1-9 9"/>
+            </svg>
             <h3>Git</h3>
             <p>Статус, диффы, история, коммиты, ветки, push и pull без переключения на терминал.</p>
           </article>
           <article class="feature">
+            <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M9 2v6"/><path d="M15 2v6"/><path d="M12 17v5"/><path d="M5 8h14"/><path d="M6 11V8a6 6 0 0 1 12 0v3a6 6 0 0 1-12 0z"/>
+            </svg>
             <h3>MCP-серверы</h3>
             <p>Подключение внешних инструментов по протоколу MCP. Состав инструментов зависит от подключённых серверов.</p>
           </article>
           <article class="feature">
+            <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+            </svg>
             <h3>Несколько чатов сразу</h3>
             <p>Параллельная работа в нескольких диалогах с индикатором состояния каждого запроса.</p>
           </article>
           <article class="feature">
+            <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
+            </svg>
             <h3>Артефакты-превью</h3>
             <p>HTML, SVG и Mermaid-диаграммы из ответа модели рисуются рядом с кодом.</p>
           </article>
@@ -92,6 +146,7 @@
         <a class="btn btn-primary btn-lg" id="download-btn" href="https://github.com/uzuqween/nchat-site/releases/latest/download/NChat.exe">
           Скачать NChat.exe
         </a>
+        <p class="download-stats" id="download-stats" hidden></p>
         <p class="download-note">Windows 10 и новее · x64</p>
       </div>
     </section>
@@ -102,6 +157,7 @@
       <span class="brand-logo brand-logo-sm" aria-hidden="true">NC</span>
       <span class="footer-text">NChat</span>
       <span class="footer-author">author: mamin_tapochek</span>
+      <a class="footer-link" href="https://github.com/uzuqween/nchat-site/releases" target="_blank" rel="noopener">GitHub</a>
       <a class="footer-link" href="https://t.me/mamin_tapochek" target="_blank" rel="noopener">Telegram</a>
     </div>
   </footer>
