@@ -21,6 +21,8 @@
       </a>
       <nav class="nav" id="nav">
         <a href="#features">Возможности</a>
+        <a href="#demo">Демо</a>
+        <a href="#changelog">Что нового</a>
         <a href="#download">Скачать</a>
         <a class="nav-telegram" href="https://t.me/NChat_AI" target="_blank" rel="noopener">Telegram</a>
         <a class="nav-github" href="https://github.com/uzuqween/nchat-site/releases" target="_blank" rel="noopener">
@@ -131,6 +133,67 @@
             <p>HTML, SVG и Mermaid-диаграммы из ответа модели рисуются рядом с кодом.</p>
           </article>
         </div>
+      </div>
+    </section>
+
+
+    <!-- Демо: анимированное окно чата, сценарии крутятся по кругу (script.js) -->
+    <section id="demo" class="section">
+      <div class="container">
+        <h2 class="section-title">Как это выглядит</h2>
+        <p class="section-lead">Запрос → инструменты → результат. Каждое действие модели видно в чате.</p>
+        <div class="demo-window" aria-label="Анимированный пример работы NChat">
+          <div class="demo-titlebar">
+            <span class="demo-dot"></span><span class="demo-dot"></span><span class="demo-dot"></span>
+            <span class="demo-title" id="demo-title">NChat — проект</span>
+          </div>
+          <div class="demo-body" id="demo-body" aria-live="polite"></div>
+          <div class="demo-input">
+            <span class="demo-input-text" id="demo-input"></span><span class="demo-caret" aria-hidden="true"></span>
+          </div>
+        </div>
+        <div class="demo-tabs" id="demo-tabs" role="tablist"></div>
+      </div>
+    </section>
+
+    <!-- Безопасность -->
+    <section id="security" class="section">
+      <div class="container">
+        <h2 class="section-title">Под вашим контролем</h2>
+        <p class="section-lead">ИИ с доступом к компьютеру — это удобно, только если вы решаете, что ему можно.</p>
+        <div class="security-grid">
+          <article class="security-card">
+            <span class="security-badge">[?]</span>
+            <h3>Подтверждение действий</h3>
+            <p>Инструменты, которые пишут файлы или запускают процессы, сначала спрашивают разрешения.</p>
+          </article>
+          <article class="security-card">
+            <span class="security-badge">[⌂]</span>
+            <h3>Граница проекта</h3>
+            <p>Запись за пределы папки проекта подтверждается всегда — без исключений.</p>
+          </article>
+          <article class="security-card">
+            <span class="security-badge">[✓]</span>
+            <h3>Видно каждый шаг</h3>
+            <p>Статусы [✓] готово, […] думает, [✕] ошибка — вы видите, что модель делает прямо сейчас.</p>
+          </article>
+          <article class="security-card">
+            <span class="security-badge">[↯]</span>
+            <h3>Ничего втихую</h3>
+            <p>Если нужной утилиты (ffmpeg, sqlite3, pip-audit) нет, NChat покажет команду установки, а не поставит её сам.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Что нового: подтягивается из GitHub Releases (script.js) -->
+    <section id="changelog" class="section">
+      <div class="container changelog-inner">
+        <h2 class="section-title">Что нового</h2>
+        <div class="changelog" id="changelog-list">
+          <p class="changelog-fallback">Загружаем историю версий…</p>
+        </div>
+        <a class="btn btn-ghost changelog-all" href="https://github.com/uzuqween/nchat-site/releases" target="_blank" rel="noopener">Все релизы на GitHub</a>
       </div>
     </section>
 
