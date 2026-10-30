@@ -29,8 +29,7 @@
 ## Установка
 
 1. Скачайте [NChat.exe](https://github.com/uzuqween/nchat-site/releases/latest/download/NChat.exe).
-2. Запустите установщик.
-3. Укажите API-ключ модели в настройках и начинайте работу.
+2. Запустите файл и следуйте подсказкам.
 
 ---
 
