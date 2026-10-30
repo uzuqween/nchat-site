@@ -1,40 +1,53 @@
-/** FAQ: плавное открытие и закрытие панелей <details> (Web Animations API). */
+/** FAQ: плавное открытие и закрытие панелей <details> (CSS transition по высоте). */
 (() => {
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-  const DURATION = 320
-  const EASING = 'cubic-bezier(0.22, 1, 0.36, 1)'
 
   document.querySelectorAll('.faq-item').forEach(details => {
     const summary = details.querySelector('summary')
     const content = details.querySelector('.faq-answer')
     if (!summary || !content) return
-    let anim = null
+
+    const finish = () => {
+      if (details.classList.contains('is-closing')) details.open = false
+      details.classList.remove('is-opening', 'is-closing')
+      content.style.height = ''
+      content.style.opacity = ''
+    }
+
+    content.addEventListener('transitionend', event => {
+      if (event.target === content && event.propertyName === 'height') finish()
+    })
 
     summary.addEventListener('click', event => {
       if (reduce) return
       event.preventDefault()
-      const closing = details.classList.contains('is-opening') || (details.open && !details.classList.contains('is-closing'))
-      const start = content.offsetHeight
-      if (anim) { anim.onfinish = null; anim.cancel() }
-      details.classList.remove('is-opening', 'is-closing')
+
+      const closing = details.classList.contains('is-opening') ||
+        (details.open && !details.classList.contains('is-closing'))
 
       if (closing) {
+        content.style.height = content.offsetHeight + 'px'
+        details.classList.remove('is-opening')
         details.classList.add('is-closing')
-        anim = content.animate(
-          [{ height: start + 'px', opacity: 1 }, { height: '0px', opacity: 0 }],
-          { duration: DURATION, easing: EASING }
-        )
-        anim.onfinish = () => { details.open = false; details.classList.remove('is-closing'); anim = null }
+        void content.offsetHeight // фиксируем стартовую высоту
+        requestAnimationFrame(() => {
+          content.style.height = '0px'
+          content.style.opacity = '0'
+        })
       } else {
-        details.open = true
-        details.classList.add('is-opening')
+        const from = details.open ? content.offsetHeight : 0
         details.classList.remove('is-closing')
-        const end = content.scrollHeight
-        anim = content.animate(
-          [{ height: start + 'px', opacity: 0 }, { height: end + 'px', opacity: 1 }],
-          { duration: DURATION, easing: EASING }
-        )
-        anim.onfinish = () => { details.classList.remove('is-opening'); anim = null }
+        details.classList.add('is-opening')
+        content.style.height = from + 'px'
+        content.style.opacity = '0'
+        details.open = true
+        void content.offsetHeight // стартовая высота применена до анимации
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            content.style.height = content.scrollHeight + 'px'
+            content.style.opacity = '1'
+          })
+        })
       }
     })
   })
