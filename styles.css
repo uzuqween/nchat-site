@@ -884,10 +884,12 @@ a { color: inherit; text-decoration: none; }
   transition: transform var(--transition-slow), color var(--transition);
 }
 
-.faq-item[open] .faq-chevron {
+.faq-item[open]:not(.is-closing) .faq-chevron {
   transform: rotate(180deg);
   color: var(--text-primary);
 }
+
+.faq-answer { overflow: hidden; }
 
 .faq-item p {
   padding: 0 22px 20px 58px;
