@@ -926,14 +926,17 @@ a { color: inherit; text-decoration: none; }
 
 /* ─────────── Подвал: ссылки ─────────── */
 
-.footer-nav {
-  margin-left: auto;
-  display: flex;
+.footer-inner {
   flex-wrap: wrap;
-  gap: 8px 22px;
+  justify-content: center;
+  text-align: center;
 }
 
-@media (max-width: 600px) {
-  .footer-inner { flex-wrap: wrap; }
-  .footer-nav { margin-left: 0; width: 100%; }
+.footer-nav {
+  flex-basis: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px 22px;
+  margin-top: 4px;
 }
