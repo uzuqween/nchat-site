@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Вопросы и ответы — NChat (NeuralChat), ИИ-чат для Windows</title>
+  <meta name="description" content="Частые вопросы о NChat (NeuralChat): бесплатно ли, как скачать и запустить, безопасность, MCP-серверы, git и параллельные чаты." />
+  <link rel="canonical" href="https://uzuqween.github.io/nchat-site/faq.html" />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Вопросы и ответы — NChat (NeuralChat), ИИ-чат для Windows" />
+  <meta property="og:description" content="Частые вопросы о NChat (NeuralChat): бесплатно ли, как скачать и запустить, безопасность, MCP-серверы, git и параллельные чаты." />
+  <meta property="og:url" content="https://uzuqween.github.io/nchat-site/faq.html" />
+  <meta property="og:image" content="https://uzuqween.github.io/nchat-site/assets/main.jpg" />
+  <meta property="og:locale" content="ru_RU" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Что такое NChat?", "acceptedAnswer": {"@type": "Answer", "text": "NChat (NeuralChat) — бесплатное настольное приложение для Windows для работы с языковыми моделями. Это ИИ-чат с доступом к вашему компьютеру: он читает и пишет файлы, выполняет команды, управляет git и подключает MCP-серверы — всё в одном окне."}}, {"@type": "Question", "name": "NChat бесплатный?", "acceptedAnswer": {"@type": "Answer", "text": "Да, NChat распространяется бесплатно. Скачать последнюю версию можно на этом сайте или на странице релизов GitHub."}}, {"@type": "Question", "name": "Какие системы поддерживаются?", "acceptedAnswer": {"@type": "Answer", "text": "Windows 10 и новее, 64-битная версия (x64)."}}, {"@type": "Question", "name": "Нужно ли устанавливать NChat?", "acceptedAnswer": {"@type": "Answer", "text": "Нет. NChat — портативная сборка: скачайте NChat.exe, сохраните в любую папку и запустите. Установка не требуется."}}, {"@type": "Question", "name": "Безопасно ли давать ИИ доступ к компьютеру?", "acceptedAnswer": {"@type": "Answer", "text": "Вы решаете, что ему можно. Инструменты, которые пишут файлы или запускают процессы, сначала спрашивают разрешения. Каждый шаг модели виден в чате со статусом, а нужные утилиты NChat не ставит сам — только показывает команду установки."}}, {"@type": "Question", "name": "Может ли NChat изменить файлы вне моего проекта?", "acceptedAnswer": {"@type": "Answer", "text": "Только с вашего подтверждения. Запись за пределы папки проекта подтверждается всегда, без исключений."}}, {"@type": "Question", "name": "Что такое MCP-серверы и зачем они нужны?", "acceptedAnswer": {"@type": "Answer", "text": "MCP (Model Context Protocol) — открытый протокол, через который к ИИ подключаются внешние инструменты. В NChat можно подключить MCP-серверы, и модель получит их инструменты. Состав инструментов зависит от подключённых серверов."}}, {"@type": "Question", "name": "Что NChat умеет с git?", "acceptedAnswer": {"@type": "Answer", "text": "Статус, диффы, история, коммиты, ветки, push и pull — прямо из чата, без переключения на терминал."}}, {"@type": "Question", "name": "Можно ли вести несколько чатов одновременно?", "acceptedAnswer": {"@type": "Answer", "text": "Да. NChat поддерживает параллельные диалоги, у каждого запроса свой индикатор состояния."}}, {"@type": "Question", "name": "Что такое артефакты-превью?", "acceptedAnswer": {"@type": "Answer", "text": "Если модель отвечает HTML, SVG или Mermaid-диаграммой, NChat сразу рисует результат рядом с кодом."}}, {"@type": "Question", "name": "Как обновить NChat?", "acceptedAnswer": {"@type": "Answer", "text": "Скачайте новую версию NChat.exe с сайта или из релизов GitHub. Список изменений каждой версии — в разделе «Что нового» на главной."}}, {"@type": "Question", "name": "Связан ли NChat с другими проектами «nchat»?", "acceptedAnswer": {"@type": "Answer", "text": "Нет. NChat (NeuralChat) — самостоятельное приложение для Windows и не связан с терминальным мессенджером nchat или другими одноимёнными проектами."}}, {"@type": "Question", "name": "Где задать вопрос или сообщить об ошибке?", "acceptedAnswer": {"@type": "Answer", "text": "В Telegram-канале проекта: t.me/NChat_AI."}}]}
+  </script>
+  <link rel="icon" href="assets/icon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" />
+  <link rel="stylesheet" href="styles.css?v=4" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="./">
+        <span class="brand-logo" aria-hidden="true">NC</span>
+        <span class="brand-name">NChat</span>
+      </a>
+      <nav class="nav" id="nav">
+        <a href="./#features">Возможности</a>
+        <a href="./#demo">Демо</a>
+        <a href="./#changelog">Что нового</a>
+        <a href="faq.html" aria-current="page">FAQ</a>
+        <a href="./#download">Скачать</a>
+        <a class="nav-telegram" href="https://t.me/NChat_AI" target="_blank" rel="noopener">Telegram</a>
+        <a class="nav-github" href="https://github.com/uzuqween/nchat-site/releases" target="_blank" rel="noopener">
+          <svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" fill="currentColor">
+            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/>
+          </svg>
+          <span>GitHub</span>
+        </a>
+      </nav>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Открыть меню" aria-expanded="false" aria-controls="nav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="top">
+    <section id="faq" class="section faq-section">
+      <div class="container faq-inner">
+        <h1 class="section-title">Вопросы и ответы</h1>
+        <p class="section-lead">Всё, что обычно спрашивают про NChat — бесплатный ИИ-чат для Windows.</p>
+        <div class="faq-list">
+          <details class="faq-item" open>
+            <summary>
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+              <h3>Что такое NChat?</h3>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </summary>
+            <p>NChat (NeuralChat) — бесплатное настольное приложение для Windows для работы с языковыми моделями. Это ИИ-чат с доступом к вашему компьютеру: он читает и пишет файлы, выполняет команды, управляет git и подключает MCP-серверы — всё в одном окне.</p>
+          </details>
+          <details class="faq-item">
+            <summary>
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
+              <h3>NChat бесплатный?</h3>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </summary>
+            <p>Да, NChat распространяется бесплатно. Скачать последнюю версию можно на этом сайте или на странице релизов GitHub.</p>
+          </details>
+          <details class="faq-item">
+            <summary>
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+              <h3>Какие системы поддерживаются?</h3>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </summary>
+            <p>Windows 10 и новее, 64-битная версия (x64).</p>
+          </details>
+          <details class="faq-item">
+            <summary>
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              <h3>Нужно ли устанавливать NChat?</h3>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </summary>
+            <p>Нет. NChat — портативная сборка: скачайте NChat.exe, сохраните в любую папку и запустите. Установка не требуется.</p>
+          </details>
+          <details class="faq-item">
+            <summary>
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+              <h3>Безопасно ли давать ИИ доступ к компьютеру?</h3>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </summary>
+            <p>Вы решаете, что ему можно. Инструменты, которые пишут файлы или запускают процессы, сначала спрашивают разрешения. Каждый шаг модели виден в чате со статусом, а нужные утилиты NChat не ставит сам — только показывает команду установки.</p>
+          </details>
+          <details class="faq-item">
+            <summary>
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+              <h3>Может ли NChat изменить файлы вне моего проекта?</h3>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </summary>
+            <p>Только с вашего подтверждения. Запись за пределы папки проекта подтверждается всегда, без исключений.</p>
+          </details>
+          <details class="faq-item">
+            <summary>
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 2v6"/><path d="M15 2v6"/><path d="M12 17v5"/><path d="M5 8h14"/><path d="M6 11V8a6 6 0 0 1 12 0v3a6 6 0 0 1-12 0z"/></svg>
+              <h3>Что такое MCP-серверы и зачем они нужны?</h3>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </summary>
+            <p>MCP (Model Context Protocol) — открытый протокол, через который к ИИ подключаются внешние инструменты. В NChat можно подключить MCP-серверы, и модель получит их инструменты. Состав инструментов зависит от подключённых серверов.</p>
+          </details>
+          <details class="faq-item">
+            <summary>
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="6" y1="3" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 9a9 9 0 0 1-9 9"/></svg>
+              <h3>Что NChat умеет с git?</h3>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </summary>
+            <p>Статус, диффы, история, коммиты, ветки, push и pull — прямо из чата, без переключения на терминал.</p>
+          </details>
+          <details class="faq-item">
+            <summary>
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              <h3>Можно ли вести несколько чатов одновременно?</h3>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </summary>
+            <p>Да. NChat поддерживает параллельные диалоги, у каждого запроса свой индикатор состояния.</p>
+          </details>
+          <details class="faq-item">
+            <summary>
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+              <h3>Что такое артефакты-превью?</h3>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </summary>
+            <p>Если модель отвечает HTML, SVG или Mermaid-диаграммой, NChat сразу рисует результат рядом с кодом.</p>
+          </details>
+          <details class="faq-item">
+            <summary>
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+              <h3>Как обновить NChat?</h3>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </summary>
+            <p>Скачайте новую версию NChat.exe с сайта или из релизов GitHub. Список изменений каждой версии — в разделе «Что нового» на главной.</p>
+          </details>
+          <details class="faq-item">
+            <summary>
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
+              <h3>Связан ли NChat с другими проектами «nchat»?</h3>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </summary>
+            <p>Нет. NChat (NeuralChat) — самостоятельное приложение для Windows и не связан с терминальным мессенджером nchat или другими одноимёнными проектами.</p>
+          </details>
+          <details class="faq-item">
+            <summary>
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+              <h3>Где задать вопрос или сообщить об ошибке?</h3>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </summary>
+            <p>В Telegram-канале проекта: <a href="https://t.me/NChat_AI" target="_blank" rel="noopener">t.me/NChat_AI</a>.</p>
+          </details>
+        </div>
+        <div class="faq-cta">
+          <p>Не нашли ответ? Напишите в <a href="https://t.me/NChat_AI" target="_blank" rel="noopener">Telegram</a>.</p>
+          <a class="btn btn-primary" href="https://github.com/uzuqween/nchat-site/releases/latest/download/NChat.exe">Скачать NChat.exe</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <span class="brand-logo brand-logo-sm" aria-hidden="true">NC</span>
+      <span class="footer-text">NChat</span>
+      <a class="footer-link" href="./">Главная</a>
+      <a class="footer-link" href="https://t.me/NChat_AI" target="_blank" rel="noopener">Telegram</a>
+    </div>
+  </footer>
+
+  <script src="script.js?v=2"></script>
+</body>
+</html>

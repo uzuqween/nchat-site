@@ -5,6 +5,7 @@
 🌐 **Сайт:** https://uzuqween.github.io/nchat-site/
 ⬇️ **Скачать для Windows:** [NChat.exe](https://github.com/uzuqween/nchat-site/releases/latest/download/NChat.exe) · [все релизы](https://github.com/uzuqween/nchat-site/releases)
 💬 **Telegram:** https://t.me/NChat_AI
+❓ **FAQ:** https://uzuqween.github.io/nchat-site/faq.html
 
 ![NChat — главное окно](assets/main.jpg)
 
@@ -29,7 +30,7 @@
 ## Установка
 
 1. Скачайте [NChat.exe](https://github.com/uzuqween/nchat-site/releases/latest/download/NChat.exe).
-2. Запустите файл и следуйте подсказкам.
+2. Запустите его — это портативная сборка, установка не требуется (Windows 10 и новее, x64).
 
 ---
 
