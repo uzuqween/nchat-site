@@ -13,7 +13,7 @@
     summary.addEventListener('click', event => {
       if (reduce) return
       event.preventDefault()
-      const closing = details.open && !details.classList.contains('is-opening')
+      const closing = details.classList.contains('is-opening') || (details.open && !details.classList.contains('is-closing'))
       const start = content.offsetHeight
       if (anim) anim.cancel()
 
