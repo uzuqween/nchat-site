@@ -15,7 +15,8 @@
       event.preventDefault()
       const closing = details.classList.contains('is-opening') || (details.open && !details.classList.contains('is-closing'))
       const start = content.offsetHeight
-      if (anim) anim.cancel()
+      if (anim) { anim.onfinish = null; anim.cancel() }
+      details.classList.remove('is-opening', 'is-closing')
 
       if (closing) {
         details.classList.add('is-closing')
@@ -35,7 +36,6 @@
         )
         anim.onfinish = () => { details.classList.remove('is-opening'); anim = null }
       }
-      anim.oncancel = () => details.classList.remove('is-opening', 'is-closing')
     })
   })
 })()
