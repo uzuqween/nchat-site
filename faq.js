@@ -7,7 +7,9 @@
     const content = details.querySelector('.faq-answer')
     if (!summary || !content) return
 
+    let timer = null
     const finish = () => {
+      clearTimeout(timer)
       if (details.classList.contains('is-closing')) details.open = false
       details.classList.remove('is-opening', 'is-closing')
       content.style.height = ''
@@ -21,6 +23,8 @@
     summary.addEventListener('click', event => {
       if (reduce) return
       event.preventDefault()
+      clearTimeout(timer)
+      timer = setTimeout(finish, 500) // запасной вариант, если transitionend не придёт
 
       const closing = details.classList.contains('is-opening') ||
         (details.open && !details.classList.contains('is-closing'))
