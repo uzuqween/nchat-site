@@ -3,6 +3,7 @@
 
 const DOWNLOAD_URL = 'https://github.com/uzuqween/nchat-site/releases/latest/download/NChat.exe'
 const RELEASE_API = 'https://api.github.com/repos/uzuqween/nchat-site/releases/latest'
+const RELEASES_API = 'https://api.github.com/repos/uzuqween/nchat-site/releases?per_page=100'
 const RELEASES_URL = 'https://github.com/uzuqween/nchat-site/releases'
 const RELEASES_LIST_API = 'https://api.github.com/repos/uzuqween/nchat-site/releases?per_page=5'
 
@@ -172,14 +173,27 @@ async function setupDownloadStats() {
   if (!stats) return
 
   try {
-    const response = await fetch(RELEASE_API, { headers: { Accept: 'application/vnd.github+json' } })
+    const headers = { Accept: 'application/vnd.github+json' }
+    const [response, allResponse] = await Promise.all([
+      fetch(RELEASE_API, { headers }),
+      fetch(RELEASES_API, { headers }).catch(() => null)
+    ])
     if (!response.ok) return
 
     const release = await response.json()
     const version = release.tag_name || ''
     const assets = Array.isArray(release.assets) ? release.assets : []
     const exe = assets.find(a => typeof a.name === 'string' && a.name.endsWith('.exe'))
-    const downloads = assets.reduce((sum, a) => sum + (a.download_count || 0), 0)
+
+    // Скачивания — сумма по всем релизам, иначе счётчик обнуляется с каждой новой версией
+    const sumAssets = list => list.reduce((sum, a) => sum + (a.download_count || 0), 0)
+    let downloads = sumAssets(assets)
+    if (allResponse && allResponse.ok) {
+      const releases = await allResponse.json()
+      if (Array.isArray(releases)) {
+        downloads = releases.reduce((sum, r) => sum + sumAssets(Array.isArray(r.assets) ? r.assets : []), 0)
+      }
+    }
 
     // Кнопки GitHub ведут на конкретный релиз, если версия известна
     if (version) {
