@@ -39,24 +39,53 @@
   </header>
 
   <main id="top">
+    <!-- Hero -->
     <section class="hero">
       <div class="container hero-inner">
         <div class="hero-logo" aria-hidden="true">NC</div>
         <h1 class="hero-title">NChat AI</h1>
         <p class="hero-lead">
-          A free desktop AI chat for Windows that works with your computer directly:
-          it reads and writes files, runs commands, manages git and connects MCP servers.
+          A desktop chat with language models that works with your
+          computer directly: it reads and writes files, runs commands,
+          manages git and connects MCP servers.
         </p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="#download">Download for Windows</a>
           <a class="btn btn-ghost" href="#features">Features</a>
         </div>
+
+        <!-- Marquee: commands and requests NChat actually runs.
+             Content duplicated for a seamless marquee loop. -->
+        <div class="hero-marquee" aria-hidden="true">
+          <div class="marquee">
+            <div class="marquee-track">
+              <span class="marquee-item"><b>$</b> git status</span>
+              <span class="marquee-item"><b>›</b> read src/app.ts</span>
+              <span class="marquee-item"><b>$</b> git commit -m "fix"</span>
+              <span class="marquee-item"><b>›</b> connect an MCP server</span>
+              <span class="marquee-item"><b>$</b> Get-Process node</span>
+              <span class="marquee-item"><b>›</b> build an HTML preview</span>
+              <span class="marquee-item"><b>$</b> git push origin master</span>
+              <span class="marquee-item"><b>›</b> find TODOs in the project</span>
+              <span class="marquee-item"><b>$</b> git status</span>
+              <span class="marquee-item"><b>›</b> read src/app.ts</span>
+              <span class="marquee-item"><b>$</b> git commit -m "fix"</span>
+              <span class="marquee-item"><b>›</b> connect an MCP server</span>
+              <span class="marquee-item"><b>$</b> Get-Process node</span>
+              <span class="marquee-item"><b>›</b> build an HTML preview</span>
+              <span class="marquee-item"><b>$</b> git push origin master</span>
+              <span class="marquee-item"><b>›</b> find TODOs in the project</span>
+            </div>
+          </div>
+        </div>
+
         <div class="hero-preview" id="hero-preview">
           <img src="../assets/main.jpg?v=110" alt="NChat AI main window" loading="lazy" />
         </div>
       </div>
     </section>
 
+    <!-- Features -->
     <section id="features" class="section">
       <div class="container">
         <h2 class="section-title">Features</h2>
@@ -105,9 +134,29 @@
           </article>
         </div>
       </div>
-    
     </section>
 
+
+    <!-- Demo: animated chat window, scenarios loop (script.js) -->
+    <section id="demo" class="section">
+      <div class="container">
+        <h2 class="section-title">How it looks</h2>
+        <p class="section-lead">Request → tools → result. Every action the model takes is visible in the chat.</p>
+        <div class="demo-window" aria-label="Animated example of NChat at work">
+          <div class="demo-titlebar">
+            <span class="demo-dot"></span><span class="demo-dot"></span><span class="demo-dot"></span>
+            <span class="demo-title" id="demo-title">NChat — project</span>
+          </div>
+          <div class="demo-body" id="demo-body" aria-live="polite"></div>
+          <div class="demo-input">
+            <span class="demo-input-text" id="demo-input"></span><span class="demo-caret" aria-hidden="true"></span>
+          </div>
+        </div>
+        <div class="demo-tabs" id="demo-tabs" role="tablist"></div>
+      </div>
+    </section>
+
+    <!-- Security -->
     <section id="security" class="section">
       <div class="container">
         <h2 class="section-title">You stay in control</h2>
@@ -137,17 +186,31 @@
       </div>
     </section>
 
+    <!-- What's new: loaded from GitHub Releases (script.js) -->
+    <section id="changelog" class="section">
+      <div class="container changelog-inner">
+        <h2 class="section-title">What's new</h2>
+        <div class="changelog" id="changelog-list">
+          <p class="changelog-fallback">Loading version history…</p>
+        </div>
+        <a class="btn btn-ghost changelog-all" href="https://github.com/uzuqween/nchat-site/releases" target="_blank" rel="noopener">All releases on GitHub</a>
+      </div>
+    </section>
+
+    <!-- Download -->
     <section id="download" class="section">
       <div class="container download-inner">
         <h2 class="section-title">Download</h2>
+        <p class="download-tagline">One click away…</p>
         <p class="download-text">
-          Portable build for Windows. No installation needed: download the file and run it.
+          Portable build for Windows. The file is saved to your Downloads folder
+          or wherever you choose — no installation needed.
         </p>
         <a class="btn btn-primary btn-lg" id="download-btn" href="https://github.com/uzuqween/nchat-site/releases/latest/download/NChat.exe">
           Download NChat.exe
         </a>
+        <p class="download-stats" id="download-stats" hidden></p>
         <p class="download-note">Windows 10 or newer · x64 · requires WebView2</p>
-        <a class="btn btn-ghost changelog-all" href="https://github.com/uzuqween/nchat-site/releases" target="_blank" rel="noopener">Release notes on GitHub</a>
       </div>
     </section>
   </main>
@@ -158,11 +221,14 @@
       <span class="footer-text">NChat</span>
       <nav class="footer-nav" aria-label="Links">
         <a class="footer-link" href="#download">Download</a>
+        <a class="footer-link" href="../faq.html">FAQ (RU)</a>
         <a class="footer-link" href="../" hreflang="ru" lang="ru">Русский</a>
         <a class="footer-link" href="https://t.me/NChat_AI" target="_blank" rel="noopener">Telegram</a>
         <a class="footer-link" href="https://github.com/uzuqween/nchat-site/releases" target="_blank" rel="noopener">GitHub</a>
       </nav>
     </div>
   </footer>
+
+  <script src="../script.js?v=3"></script>
 </body>
 </html>

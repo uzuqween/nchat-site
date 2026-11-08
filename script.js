@@ -7,6 +7,20 @@ const RELEASES_API = 'https://api.github.com/repos/uzuqween/nchat-site/releases?
 const RELEASES_URL = 'https://github.com/uzuqween/nchat-site/releases'
 const RELEASES_LIST_API = 'https://api.github.com/repos/uzuqween/nchat-site/releases?per_page=5'
 
+const LANG = (document.documentElement.lang || 'ru').toLowerCase().startsWith('en') ? 'en' : 'ru'
+const T = {
+  ru: {
+    soon: 'Сборка скоро появится', download: 'Скачать NChat.exe', closeMenu: 'Закрыть меню', openMenu: 'Открыть меню',
+    mb: 'МБ', confirmed: 'подтверждено', latest: 'новое', locale: 'ru-RU',
+    changelogError: 'Историю версий не удалось загрузить — она есть на GitHub.'
+  },
+  en: {
+    soon: 'Build coming soon', download: 'Download NChat.exe', closeMenu: 'Close menu', openMenu: 'Open menu',
+    mb: 'MB', confirmed: 'approved', latest: 'latest', locale: 'en-US',
+    changelogError: 'Could not load the version history — it is available on GitHub.'
+  }
+}[LANG]
+
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -34,8 +48,8 @@ function setupDownload() {
 
   btn.addEventListener('click', event => {
     event.preventDefault()
-    btn.textContent = 'Сборка скоро появится'
-    setTimeout(() => { btn.textContent = 'Скачать NChat.exe' }, 2000)
+    btn.textContent = T.soon
+    setTimeout(() => { btn.textContent = T.download }, 2000)
   })
 }
 
@@ -70,7 +84,7 @@ function setupNavToggle() {
   const setOpen = open => {
     nav.classList.toggle('open', open)
     toggle.setAttribute('aria-expanded', String(open))
-    toggle.setAttribute('aria-label', open ? 'Закрыть меню' : 'Открыть меню')
+    toggle.setAttribute('aria-label', open ? T.closeMenu : T.openMenu)
   }
 
   toggle.addEventListener('click', () => {
@@ -217,7 +231,7 @@ async function setupDownloadStats() {
 
 function formatBytes(bytes) {
   const mb = bytes / (1024 * 1024)
-  return `${mb >= 100 ? Math.round(mb) : mb.toFixed(1)} МБ`
+  return `${mb >= 100 ? Math.round(mb) : mb.toFixed(1)} ${T.mb}`
 }
 
 function formatCount(count) {
@@ -226,6 +240,7 @@ function formatCount(count) {
 
 /** Склонение: 1 скачивание, 2 скачивания, 5 скачиваний */
 function pluralDownloads(n) {
+  if (LANG === 'en') return n === 1 ? 'download' : 'downloads'
   const mod10 = n % 10
   const mod100 = n % 100
   if (mod10 === 1 && mod100 !== 11) return 'скачивание'
@@ -248,7 +263,7 @@ function escapeHtml(text) {
  * tool — вызов инструмента (сначала […] / [?], затем [✓]), bot — ответ модели.
  * Инструменты — реальные из NChat (см. релизы v1.0.6–v1.0.7).
  */
-const DEMO_SCENARIOS = [
+const DEMO_SCENARIOS_RU = [
   {
     tab: 'git',
     title: 'NChat — nchat-site',
@@ -290,6 +305,51 @@ const DEMO_SCENARIOS = [
     ]
   }
 ]
+
+const DEMO_SCENARIOS_EN = [
+  {
+    tab: 'git',
+    title: 'NChat — nchat-site',
+    steps: [
+      { type: 'user', text: 'commit the changes and push' },
+      { type: 'tool', name: 'git_status', done: '3 files changed' },
+      { type: 'tool', name: 'git_commit -m "fix: light theme"', done: 'commit a1f3c9e' },
+      { type: 'tool', name: 'git push origin master', ask: true, done: 'pushed' },
+      { type: 'bot', html: 'Done: 3 files on <code>master</code>, branch is in sync.' }
+    ]
+  },
+  {
+    tab: 'logs',
+    title: 'NChat — backend',
+    steps: [
+      { type: 'user', text: 'why does the server crash on startup?' },
+      { type: 'tool', name: 'tail_file logs/server.log', done: '50 lines' },
+      { type: 'tool', name: 'read_file src/db.ts', done: 'read' },
+      { type: 'bot', html: 'The log shows <code>ECONNREFUSED 127.0.0.1:5432</code> — Postgres isn\'t running. Start the service?' }
+    ]
+  },
+  {
+    tab: 'video',
+    title: 'NChat — Downloads',
+    steps: [
+      { type: 'user', text: 'extract the audio from clip.mp4 to mp3' },
+      { type: 'tool', name: 'extract_audio clip.mp4 → clip.mp3', ask: true, done: 'done' },
+      { type: 'bot', html: 'Saved <code>clip.mp3</code> next to the video. Trim the beginning?' }
+    ]
+  },
+  {
+    tab: 'audit',
+    title: 'NChat — web-app',
+    steps: [
+      { type: 'user', text: 'check dependencies for vulnerabilities' },
+      { type: 'tool', name: 'dependency_audit', done: '2 vulnerabilities' },
+      { type: 'tool', name: 'outdated_packages', done: '5 packages outdated' },
+      { type: 'bot', html: 'Nothing critical. <code>axios</code> and <code>vite</code> should be updated — do it?' }
+    ]
+  }
+]
+
+const DEMO_SCENARIOS = LANG === 'en' ? DEMO_SCENARIOS_EN : DEMO_SCENARIOS_RU
 
 function setupDemo() {
   const body = document.getElementById('demo-body')
@@ -354,7 +414,7 @@ function setupDemo() {
 
       if (step.type === 'tool') {
         const row = toolLine(step.ask ? '[?]' : '[…]', step.ask ? 'ask' : 'run',
-          step.ask ? `${step.name} — подтверждено` : step.name)
+          step.ask ? `${step.name} — ${T.confirmed}` : step.name)
         body.appendChild(row)
         await sleep(step.ask ? 1100 : 800)
         if (!alive()) return
@@ -407,20 +467,20 @@ async function setupChangelog() {
       if (index === 0) details.open = true
 
       const date = release.published_at
-        ? new Date(release.published_at).toLocaleDateString('ru-RU', { day: 'numeric', month: 'long', year: 'numeric' })
+        ? new Date(release.published_at).toLocaleDateString(T.locale, { day: 'numeric', month: 'long', year: 'numeric' })
         : ''
 
       details.innerHTML = `
         <summary>
           <span class="release-tag">${escapeHtml(release.tag_name || '')}</span>
-          ${index === 0 ? '<span class="release-latest">новое</span>' : ''}
+          ${index === 0 ? `<span class="release-latest">${T.latest}</span>` : ''}
           <span class="release-date">${escapeHtml(date)}</span>
         </summary>
         <div class="release-body">${renderReleaseNotes(release.body || '')}</div>`
       list.appendChild(details)
     })
   } catch {
-    list.innerHTML = '<p class="changelog-fallback">Историю версий не удалось загрузить — она есть на GitHub.</p>'
+    list.innerHTML = `<p class="changelog-fallback">${T.changelogError}</p>`
   }
 }
 
