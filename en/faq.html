@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FAQ — NChat AI (NeuralChat), free AI chat for Windows</title>
+  <meta name="description" content="Frequently asked questions about NChat AI (NeuralChat): is it free, how to download and run it, safety, MCP servers, git and parallel chats." />
+  <link rel="canonical" href="https://uzuqween.github.io/nchat-site/en/faq.html" />
+  <link rel="alternate" hreflang="ru" href="https://uzuqween.github.io/nchat-site/faq.html" />
+  <link rel="alternate" hreflang="en" href="https://uzuqween.github.io/nchat-site/en/faq.html" />
+  <link rel="alternate" hreflang="x-default" href="https://uzuqween.github.io/nchat-site/faq.html" />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="NChat" />
+  <meta name="application-name" content="NChat" />
+  <meta property="og:title" content="FAQ — NChat AI (NeuralChat), free AI chat for Windows" />
+  <meta property="og:description" content="Frequently asked questions about NChat AI (NeuralChat): is it free, how to download and run it, safety, MCP servers, git and parallel chats." />
+  <meta property="og:url" content="https://uzuqween.github.io/nchat-site/en/faq.html" />
+  <meta property="og:image" content="https://uzuqween.github.io/nchat-site/assets/main.jpg" />
+  <meta property="og:locale" content="en_US" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is NChat?", "acceptedAnswer": {"@type": "Answer", "text": "NChat (NeuralChat) is a free desktop app for Windows for working with language models. It is an AI chat with access to your computer: it reads and writes files, runs commands, manages git and connects MCP servers — all in one window."}}, {"@type": "Question", "name": "Is NChat free?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, NChat is free. You can download the latest version from this site or from the GitHub releases page."}}, {"@type": "Question", "name": "Which systems are supported?", "acceptedAnswer": {"@type": "Answer", "text": "Windows 10 or newer, 64-bit (x64). It needs the Microsoft Edge WebView2 Runtime: it is built into Windows 11, and on Windows 10 it usually comes with the Edge browser. If the NChat window does not open, install the WebView2 Runtime from Microsoft."}}, {"@type": "Question", "name": "Do I need to install NChat?", "acceptedAnswer": {"@type": "Answer", "text": "No. NChat is a portable build: download NChat.exe, save it to any folder and run it. No installation needed."}}, {"@type": "Question", "name": "Is it safe to give an AI access to my computer?", "acceptedAnswer": {"@type": "Answer", "text": "You decide what it may do. Tools that write files or start processes ask for permission first. Every step the model takes is shown in the chat with a status, and NChat never installs the utilities it needs on its own — it only shows the install command."}}, {"@type": "Question", "name": "Can NChat change files outside my project?", "acceptedAnswer": {"@type": "Answer", "text": "Only with your confirmation. Writing outside the project folder always needs confirmation, no exceptions."}}, {"@type": "Question", "name": "Where are my chats and settings stored?", "acceptedAnswer": {"@type": "Answer", "text": "Locally on your computer, in the %APPDATA%\\nchat folder. When you upgrade from older versions, your data is picked up automatically. Network requests go only to the model provider you chose, to connected HTTP MCP servers and to GitHub when checking for updates."}}, {"@type": "Question", "name": "What are MCP servers and why use them?", "acceptedAnswer": {"@type": "Answer", "text": "MCP (Model Context Protocol) is an open protocol for connecting external tools to an AI. You can connect MCP servers in NChat and the model gets their tools. The available tools depend on the servers you connect."}}, {"@type": "Question", "name": "What can NChat do with git?", "acceptedAnswer": {"@type": "Answer", "text": "Status, diffs, history, commits, branches, push and pull — right from the chat, without switching to a terminal."}}, {"@type": "Question", "name": "Can I run several chats at once?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. NChat supports parallel conversations, and each request has its own status indicator."}}, {"@type": "Question", "name": "What are live previews?", "acceptedAnswer": {"@type": "Answer", "text": "If the model replies with HTML, SVG or a Mermaid diagram, NChat renders the result right next to the code."}}, {"@type": "Question", "name": "How do I update NChat?", "acceptedAnswer": {"@type": "Answer", "text": "Since version 1.1.0, NChat checks for new versions through GitHub Releases on its own and verifies the file's SHA-256 checksum before updating. You can also update manually: download the latest NChat.exe from this site or from GitHub releases. The changelog is in the “What's new” section on the home page."}}, {"@type": "Question", "name": "Where can I ask a question or report a bug?", "acceptedAnswer": {"@type": "Answer", "text": "In the project's Telegram channel: t.me/NChat_AI."}}]}
+  </script>
+  <link rel="icon" href="../assets/icon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" />
+  <link rel="stylesheet" href="../styles.css?v=8" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="./">
+        <span class="brand-logo" aria-hidden="true">NC</span>
+        <span class="brand-name">NChat</span>
+      </a>
+    </div>
+  </header>
+
+  <main id="top">
+    <section id="faq" class="section faq-section">
+      <div class="container faq-inner">
+        <h1 class="section-title">Frequently asked questions</h1>
+        <p class="section-lead">Everything people usually ask about NChat AI — a free AI chat for Windows.</p>
+        <div class="faq-list">
+          <details class="faq-item" open>
+            <summary>
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+              <h3>What is NChat?</h3>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </summary>
+            <div class="faq-answer"><p>NChat (NeuralChat) is a free desktop app for Windows for working with language models. It is an AI chat with access to your computer: it reads and writes files, runs commands, manages git and connects MCP servers — all in one window.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
+              <h3>Is NChat free?</h3>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </summary>
+            <div class="faq-answer"><p>Yes, NChat is free. You can download the latest version from this site or from the GitHub releases page.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+              <h3>Which systems are supported?</h3>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </summary>
+            <div class="faq-answer"><p>Windows 10 or newer, 64-bit (x64).</p><p>It needs the Microsoft Edge WebView2 Runtime: it is built into Windows 11, and on Windows 10 it usually comes with the Edge browser. If the NChat window does not open, install the <a href="https://developer.microsoft.com/microsoft-edge/webview2/" target="_blank" rel="noopener">WebView2 Runtime</a> from Microsoft.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              <h3>Do I need to install NChat?</h3>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </summary>
+            <div class="faq-answer"><p>No. NChat is a portable build: download NChat.exe, save it to any folder and run it. No installation needed.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+              <h3>Is it safe to give an AI access to my computer?</h3>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </summary>
+            <div class="faq-answer"><p>You decide what it may do. Tools that write files or start processes ask for permission first. Every step the model takes is shown in the chat with a status, and NChat never installs the utilities it needs on its own — it only shows the install command.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+              <h3>Can NChat change files outside my project?</h3>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </summary>
+            <div class="faq-answer"><p>Only with your confirmation. Writing outside the project folder always needs confirmation, no exceptions.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/><path d="M3 12c0 1.66 4 3 9 3s9-1.34 9-3"/></svg>
+              <h3>Where are my chats and settings stored?</h3>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </summary>
+            <div class="faq-answer"><p>Locally on your computer, in the <code>%APPDATA%\nchat</code> folder. When you upgrade from older versions, your data is picked up automatically. Network requests go only to the model provider you chose, to connected HTTP MCP servers and to GitHub when checking for updates.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 2v6"/><path d="M15 2v6"/><path d="M12 17v5"/><path d="M5 8h14"/><path d="M6 11V8a6 6 0 0 1 12 0v3a6 6 0 0 1-12 0z"/></svg>
+              <h3>What are MCP servers and why use them?</h3>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </summary>
+            <div class="faq-answer"><p>MCP (Model Context Protocol) is an open protocol for connecting external tools to an AI. You can connect MCP servers in NChat and the model gets their tools. The available tools depend on the servers you connect.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="6" y1="3" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 9a9 9 0 0 1-9 9"/></svg>
+              <h3>What can NChat do with git?</h3>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </summary>
+            <div class="faq-answer"><p>Status, diffs, history, commits, branches, push and pull — right from the chat, without switching to a terminal.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              <h3>Can I run several chats at once?</h3>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </summary>
+            <div class="faq-answer"><p>Yes. NChat supports parallel conversations, and each request has its own status indicator.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+              <h3>What are live previews?</h3>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </summary>
+            <div class="faq-answer"><p>If the model replies with HTML, SVG or a Mermaid diagram, NChat renders the result right next to the code.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+              <h3>How do I update NChat?</h3>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </summary>
+            <div class="faq-answer"><p>Since version 1.1.0, NChat checks for new versions through GitHub Releases on its own and verifies the file's SHA-256 checksum before updating. You can also update manually: download the latest NChat.exe from this site or from GitHub releases. The changelog is in the “What's new” section on the home page.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+              <h3>Where can I ask a question or report a bug?</h3>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </summary>
+            <div class="faq-answer"><p>In the project's Telegram channel: <a href="https://t.me/NChat_AI" target="_blank" rel="noopener">t.me/NChat_AI</a>.</p></div>
+          </details>
+        </div>
+        <div class="faq-cta">
+          <p>Didn't find an answer? Write to us on <a href="https://t.me/NChat_AI" target="_blank" rel="noopener">Telegram</a>.</p>
+          <a class="btn btn-primary" href="https://github.com/uzuqween/nchat-site/releases/latest/download/NChat.exe">Download NChat.exe</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <span class="brand-logo brand-logo-sm" aria-hidden="true">NC</span>
+      <span class="footer-text">NChat</span>
+      <nav class="footer-nav" aria-label="Links">
+        <a class="footer-link" href="./">Home</a>
+        <a class="footer-link" href="./#download">Download</a>
+        <a class="footer-link" href="../faq.html" hreflang="ru" lang="ru">Русский</a>
+        <a class="footer-link" href="https://t.me/NChat_AI" target="_blank" rel="noopener">Telegram</a>
+        <a class="footer-link" href="https://github.com/uzuqween/nchat-site/releases" target="_blank" rel="noopener">GitHub</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="../script.js?v=4"></script>
+  <script src="../faq.js?v=5"></script>
+</body>
+</html>

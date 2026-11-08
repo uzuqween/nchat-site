@@ -460,6 +460,15 @@ async function setupChangelog() {
     const releases = (await response.json()).filter(r => !r.draft)
     if (releases.length === 0) throw new Error('empty')
 
+    // Английская версия: переводы описаний релизов лежат в en/releases.json (ключ — тег)
+    let translations = {}
+    if (LANG === 'en') {
+      try {
+        const tr = await fetch('releases.json', { cache: 'no-cache' })
+        if (tr.ok) translations = await tr.json()
+      } catch { /* нет перевода — показываем оригинал */ }
+    }
+
     list.innerHTML = ''
     releases.forEach((release, index) => {
       const details = document.createElement('details')
@@ -476,7 +485,7 @@ async function setupChangelog() {
           ${index === 0 ? `<span class="release-latest">${T.latest}</span>` : ''}
           <span class="release-date">${escapeHtml(date)}</span>
         </summary>
-        <div class="release-body">${renderReleaseNotes(release.body || '')}</div>`
+        <div class="release-body">${renderReleaseNotes(translations[release.tag_name] || release.body || '')}</div>`
       list.appendChild(details)
     })
   } catch {
