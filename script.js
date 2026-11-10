@@ -41,6 +41,15 @@ function setupDownload() {
   const btn = document.getElementById('download-btn')
   if (!(btn instanceof HTMLAnchorElement)) return
 
+  // Звук при нажатии «Скачать» (тихий, без блокировки скачивания)
+  const sound = new Audio('/nchat-site/assets/download.mp3')
+  sound.preload = 'auto'
+  sound.volume = 0.8
+  btn.addEventListener('click', () => {
+    sound.currentTime = 0
+    sound.play().catch(() => {})
+  })
+
   if (DOWNLOAD_URL) {
     btn.href = DOWNLOAD_URL
     return
