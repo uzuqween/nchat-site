@@ -26,7 +26,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" />
-  <link rel="stylesheet" href="../styles.css?v=8" />
+  <link rel="stylesheet" href="../styles.css?v=9" />
 </head>
 <body>
   <header class="site-header">
@@ -156,6 +156,37 @@
       </div>
     </section>
 
+    <!-- Настройки: свотчи перекрашивают свечение вокруг скриншота (script.js, setupCustomize) -->
+    <section id="customize" class="section">
+      <div class="container customize">
+        <div class="customize-copy">
+          <h2 class="section-title customize-title">Make it yours</h2>
+          <p class="customize-lead">Theme, accent, motion and window — all in one settings dialog. Try a color:</p>
+          <div class="swatches" role="group" aria-label="Accent color">
+            <button type="button" class="swatch" style="--c:#d8a4f5" data-rgb="216, 164, 245" aria-label="#d8a4f5"></button>
+            <button type="button" class="swatch" style="--c:#7c3aed" data-rgb="124, 58, 237" aria-label="#7c3aed"></button>
+            <button type="button" class="swatch" style="--c:#3b82f6" data-rgb="59, 130, 246" aria-label="#3b82f6"></button>
+            <button type="button" class="swatch" style="--c:#06b6d4" data-rgb="6, 182, 212" aria-label="#06b6d4"></button>
+            <button type="button" class="swatch" style="--c:#10b981" data-rgb="16, 185, 129" aria-label="#10b981"></button>
+            <button type="button" class="swatch" style="--c:#f59e0b" data-rgb="245, 158, 11" aria-label="#f59e0b"></button>
+            <button type="button" class="swatch" style="--c:#ef4444" data-rgb="239, 68, 68" aria-label="#ef4444"></button>
+            <button type="button" class="swatch" style="--c:#ec4899" data-rgb="236, 72, 153" aria-label="#ec4899"></button>
+          </div>
+          <ul class="customize-list">
+            <li>Light and dark theme</li>
+            <li>15 accents plus a custom color</li>
+            <li>Low-motion mode for weaker laptops</li>
+            <li>Rounded corners and sidebar width</li>
+            <li>Custom keyboard shortcuts</li>
+          </ul>
+          <p class="customize-hint">The color changes only in this block — in the app it applies to the whole interface.</p>
+        </div>
+        <div class="customize-shot" id="customize-shot">
+          <img src="../assets/settings-modal.png?v=1" alt="NChat settings: Appearance tab" loading="lazy" width="724" height="632" />
+        </div>
+      </div>
+    </section>
+
     <!-- Security -->
     <section id="security" class="section">
       <div class="container">
@@ -229,6 +260,6 @@
     </div>
   </footer>
 
-  <script src="../script.js?v=5"></script>
+  <script src="../script.js?v=6"></script>
 </body>
 </html>
