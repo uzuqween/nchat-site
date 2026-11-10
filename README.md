@@ -1,6 +1,6 @@
 # NChat (NeuralChat) — бесплатный ИИ-чат для Windows
 
-**NChat** (NeuralChat) — бесплатное настольное приложение для Windows для работы с языковыми моделями. ИИ-агент с доступом к вашему компьютеру: файлы, командная строка, git, MCP-серверы и несколько чатов одновременно — в одном окне.
+**NChat AI** — бесплатное настольное приложение для Windows и ИИ-агент для разработки. Он помогает разбирать проекты, искать ошибки и работать с файлами, командной строкой, git и MCP-серверами — в одном окне.
 
 🌐 **Сайт:** https://uzuqween.github.io/nchat-site/
 ⬇️ **Скачать для Windows:** [NChat.exe](https://github.com/uzuqween/nchat-site/releases/latest/download/NChat.exe) · [все релизы](https://github.com/uzuqween/nchat-site/releases)
@@ -14,8 +14,10 @@
 - **Работа с файлами** — чтение, поиск по имени и содержимому, правка фрагментов, создание, копирование и перемещение прямо из чата.
 - **Оболочка и система** — выполнение команд, запуск программ, процессы, службы и переменные среды под контролем подтверждений.
 - **Git** — статус, диффы, история, коммиты, ветки, push и pull без переключения на терминал.
-- **MCP-серверы** — подключение внешних инструментов по протоколу Model Context Protocol. Состав инструментов зависит от подключённых серверов.
+- **Режим разработки** — контекст выбранного проекта, быстрые стартовые задачи и инструменты для работы с кодом.
 - **Несколько чатов сразу** — параллельные диалоги с индикатором состояния каждого запроса.
+- **MCP-серверы** — подключение внешних инструментов по протоколу Model Context Protocol. Состав инструментов зависит от подключённых серверов.
+- **Понятные ошибки** — карточки с рекомендациями, повтором запроса и быстрым выбором другого провайдера.
 - **Артефакты-превью** — HTML, SVG и Mermaid-диаграммы из ответа модели рисуются рядом с кодом.
 
 ## Под вашим контролем
@@ -39,4 +41,4 @@
 
 ---
 
-**English:** NChat (NeuralChat) is a free desktop AI chat app for Windows — an AI agent with access to your files, shell, git and MCP servers, with multiple parallel chats. Website: https://uzuqween.github.io/nchat-site/
+**English:** NChat AI is a free Windows desktop chat and coding agent. It helps explore projects, find bugs and work with files, shell commands, git and MCP servers. Website: https://uzuqween.github.io/nchat-site/
