@@ -30,7 +30,6 @@ document.addEventListener('DOMContentLoaded', () => {
   setupDownloadStats()
   setupDemo()
   setupChangelog()
-  setupCustomize()
   if (!prefersReducedMotion && window.matchMedia('(pointer: fine)').matches) {
     setupTilt()
     setupBloomParallax()
@@ -527,45 +526,4 @@ function renderReleaseNotes(markdown) {
   }
   closeList()
   return out.join('')
-}
-
-/**
- * «Под себя»: свотчи меняют --pick-rgb блока — свечение, рамка скриншота и маркеры списка.
- * До первого клика цвета листаются сами раз в 2,6 с (если анимации не отключены в системе).
- */
-function setupCustomize() {
-  const root = document.querySelector('.customize')
-  const shot = document.getElementById('customize-shot')
-  const swatches = root ? [...root.querySelectorAll('.swatch')] : []
-  if (!root || !swatches.length) return
-
-  let index = 1
-  let timer = null
-
-  const pick = (i, fromUser) => {
-    index = i
-    swatches.forEach((s, n) => s.classList.toggle('active', n === i))
-    root.style.setProperty('--pick-rgb', swatches[i].dataset.rgb)
-    if (shot && !prefersReducedMotion) {
-      shot.classList.remove('pulse')
-      void shot.offsetWidth
-      shot.classList.add('pulse')
-    }
-    if (fromUser && timer) { clearInterval(timer); timer = null }
-  }
-
-  swatches.forEach((s, i) => s.addEventListener('click', () => pick(i, true)))
-  pick(index, false)
-
-  if (prefersReducedMotion || !('IntersectionObserver' in window)) return
-  const obs = new IntersectionObserver(entries => {
-    const visible = entries.some(e => e.isIntersecting)
-    if (visible && !timer && !root.dataset.touched) {
-      timer = setInterval(() => pick((index + 1) % swatches.length, false), 2600)
-    } else if (!visible && timer) {
-      clearInterval(timer); timer = null
-    }
-  }, { threshold: 0.3 })
-  obs.observe(root)
-  swatches.forEach(s => s.addEventListener('click', () => { root.dataset.touched = '1' }))
 }
