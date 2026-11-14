@@ -1,7 +1,7 @@
 // Появление секций, бургер-меню, tilt-превью, параллак bloom, статистика релиза,
 // анимированное демо и лента «Что нового» из GitHub Releases.
 
-const DOWNLOAD_URL = 'https://github.com/uzuqween/nchat-site/releases/latest/download/NChat.exe'
+const DOWNLOAD_URL = 'https://github.com/uzuqween/nchat-site/releases/latest'
 const RELEASE_API = 'https://api.github.com/repos/uzuqween/nchat-site/releases/latest'
 const RELEASES_API = 'https://api.github.com/repos/uzuqween/nchat-site/releases?per_page=100'
 const RELEASES_URL = 'https://github.com/uzuqween/nchat-site/releases'
@@ -10,12 +10,12 @@ const RELEASES_LIST_API = 'https://api.github.com/repos/uzuqween/nchat-site/rele
 const LANG = (document.documentElement.lang || 'ru').toLowerCase().startsWith('en') ? 'en' : 'ru'
 const T = {
   ru: {
-    soon: 'Сборка скоро появится', download: 'Скачать NChat.exe', closeMenu: 'Закрыть меню', openMenu: 'Открыть меню',
+    soon: 'Сборка скоро появится', download: 'Скачать NChat', closeMenu: 'Закрыть меню', openMenu: 'Открыть меню',
     mb: 'МБ', confirmed: 'подтверждено', latest: 'новое', locale: 'ru-RU',
     changelogError: 'Историю версий не удалось загрузить — она есть на GitHub.'
   },
   en: {
-    soon: 'Build coming soon', download: 'Download NChat.exe', closeMenu: 'Close menu', openMenu: 'Open menu',
+    soon: 'Build coming soon', download: 'Download NChat', closeMenu: 'Close menu', openMenu: 'Open menu',
     mb: 'MB', confirmed: 'approved', latest: 'latest', locale: 'en-US',
     changelogError: 'Could not load the version history — it is available on GitHub.'
   }
@@ -207,6 +207,13 @@ async function setupDownloadStats() {
     const version = release.tag_name || ''
     const assets = Array.isArray(release.assets) ? release.assets : []
     const exe = assets.find(a => typeof a.name === 'string' && a.name.endsWith('.exe'))
+
+    // Прямая ссылка на .exe из последнего релиза — имя файла может меняться между версиями
+    if (exe && exe.browser_download_url) {
+      document.querySelectorAll('#download-btn, a[href="' + DOWNLOAD_URL + '"]').forEach(link => {
+        link.href = exe.browser_download_url
+      })
+    }
 
     // Скачивания — сумма по всем релизам, иначе счётчик обнуляется с каждой новой версией
     const sumAssets = list => list.reduce((sum, a) => sum + (a.download_count || 0), 0)
